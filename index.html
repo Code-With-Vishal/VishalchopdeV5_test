@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Vishal Chopde — The AI that picks up when you can't</title>
+<title>Vishal Chopde | The AI that picks up when you can't</title>
 <meta name="description" content="Missed calls, late replies and dead follow-ups cost you jobs. I build the AI that answers, qualifies and books on WhatsApp in under 90 seconds. Live in 3 days."/>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 680 680'%3E%3Crect x='90' y='90' width='500' height='500' rx='90' fill='%230C0C0C'/%3E%3Cg transform='translate(130,130) scale(13.125)'%3E%3Cpath d='M3 5 L9 5 L14 22 L11 22 Z' fill='%23B8902E'/%3E%3Cpath d='M14 22 L11 22 L18 5 L21 5 Z' fill='%23B8902E' opacity='.55'/%3E%3Cpath d='M29 9.5 A9 9 0 1 0 29 22.5 L26.2 19.8 A5.4 5.4 0 1 1 26.2 12.2 Z' fill='%23B8902E'/%3E%3C/g%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +15,7 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 :root{
-  --bg:#FAF8F3;            /* warm bone — sits under gold */
+  --bg:#FAF8F3;            /* warm bone, sits under gold */
   --ink:#0C0C0C;           /* logo black */
   --mid:rgba(12,12,12,.55);
   --faint:rgba(12,12,12,.34);
@@ -32,13 +32,14 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;
   background-image:radial-gradient(880px 420px at 82% -10%, rgba(184,144,46,.13), transparent 62%);}
-.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.wrap-n{max-width:820px}  /* narrow rail for prose */
 a{color:inherit;text-decoration:none}
 .mono{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 h1,h2,h3,.disp{font-family:var(--disp);font-weight:300;letter-spacing:-.015em;line-height:1.05}
 em{font-style:italic;color:var(--gold-dp)}
 
-/* ── logo ── */
+/* logo */
 .mark{display:block;opacity:0;animation:markIn .9s cubic-bezier(.2,.8,.2,1) .2s forwards}
 @keyframes markIn{from{opacity:0;transform:translateY(4px) scale(.94)}to{opacity:1;transform:none}}
 .lockup{display:flex;align-items:center;gap:11px}
@@ -48,7 +49,7 @@ em{font-style:italic;color:var(--gold-dp)}
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:60;transition:.45s;border-bottom:1px solid transparent}
 nav.stuck{background:rgba(250,248,243,.82);backdrop-filter:blur(14px);border-color:var(--line)}
-.nav-in{max-width:940px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.nav-in{max-width:1180px;margin:0 auto;padding:16px 40px;display:flex;justify-content:space-between;align-items:center}
 .nav-r{display:flex;align-items:center;gap:24px}
 .nav-r .lnk{font-size:14px;color:var(--mid)}
 .nav-r .lnk:hover{color:var(--ink)}
@@ -65,17 +66,19 @@ nav.stuck{background:rgba(250,248,243,.82);backdrop-filter:blur(14px);border-col
 .btn.gold::after{background:var(--bg)}
 
 /* hero */
-header{padding:170px 0 100px}
+header{padding:150px 0 96px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:44px}}
 .tag{display:inline-flex;gap:9px;align-items:center;font-size:12.5px;color:var(--mid);border:1px solid var(--line);border-radius:100px;padding:7px 14px}
 .pulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pl 2.4s infinite}
 @keyframes pl{0%,100%{box-shadow:0 0 0 0 rgba(184,144,46,.5)}50%{box-shadow:0 0 0 7px rgba(184,144,46,0)}}
-h1{font-size:clamp(2.7rem,6.4vw,4.9rem);margin:28px 0 0;max-width:17ch}
+h1{font-size:clamp(2.4rem,4.9vw,4.4rem);margin:26px 0 0;max-width:14ch}
 h1 .t{color:var(--warn);font-variant-numeric:tabular-nums;transition:opacity .26s}
 .sub{margin-top:26px;max-width:48ch;color:var(--mid);font-size:clamp(1rem,1.35vw,1.15rem)}
 .acts{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
 
 /* log */
-.log{margin-top:74px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.62);padding:24px 26px;font-family:var(--mono);font-size:12px;position:relative;overflow:hidden}
+.log{margin-top:0;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.62);padding:24px 26px;font-family:var(--mono);font-size:12px;position:relative;overflow:hidden}
 .log::before{content:"";position:absolute;right:-40px;top:-40px;width:190px;height:190px;background:var(--gold-sf);border-radius:50%;filter:blur(30px)}
 .log-h{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--line);position:relative}
 .log-h span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
@@ -88,10 +91,13 @@ h1 .t{color:var(--warn);font-variant-numeric:tabular-nums;transition:opacity .26
 
 /* sections */
 section{padding:118px 0;border-top:1px solid var(--line)}
-h2{font-size:clamp(2.1rem,4.4vw,3.2rem);margin-top:14px;max-width:17ch}
+h2{font-size:clamp(2.1rem,4vw,3.2rem);margin-top:0;max-width:17ch}
+.shead{display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:start;padding-bottom:8px}
+.shead .mono{padding-top:10px}
+@media(max-width:800px){.shead{grid-template-columns:1fr;gap:10px}.shead .mono{padding-top:0}}
 
 /* calc */
-.calc{margin-top:52px;display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:center}
+.calc{margin-top:56px;display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center}
 @media(max-width:800px){.calc{grid-template-columns:1fr;gap:32px}}
 .field{margin-bottom:26px}
 .field label{display:flex;justify-content:space-between;font-size:14px;color:var(--mid);margin-bottom:10px}
@@ -121,16 +127,16 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
 .chip:hover{border-color:var(--gold);color:var(--gold-dp);background:var(--gold-sf)}
 
 /* proof */
-.nums{display:grid;grid-template-columns:1fr 1fr;margin-top:52px}
+.nums{display:grid;grid-template-columns:1fr 1fr;margin-top:52px;gap:0}
 .num{padding:34px 0}
 .num:first-child{border-right:1px solid var(--line);padding-right:40px}
 .num:last-child{padding-left:40px}
-.num .v{font-family:var(--disp);font-weight:300;font-size:clamp(3.4rem,7.4vw,5.2rem);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.num .v{font-family:var(--disp);font-weight:300;font-size:clamp(3.4rem,6.4vw,6rem);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .num .v u{text-decoration:none;font-size:.26em;color:var(--faint);margin-left:.14em}
 .num.hi .v{color:var(--gold-dp)}
 .num p{color:var(--mid);font-size:15px;margin-top:12px;max-width:26ch}
 @media(max-width:720px){.nums{grid-template-columns:1fr}.num:first-child{border-right:0;border-bottom:1px solid var(--line);padding-right:0}.num:last-child{padding-left:0}}
-.quote{margin-top:52px;font-family:var(--disp);font-weight:300;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.3;max-width:26ch;padding-left:22px;border-left:2px solid var(--gold)}
+.quote{margin:56px 0 0 auto;font-family:var(--disp);font-weight:300;font-size:clamp(1.5rem,2.7vw,2.1rem);line-height:1.3;max-width:30ch;padding-left:24px;border-left:2px solid var(--gold)}
 .quote cite{display:block;margin-top:18px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-style:normal}
 
 /* pricing */
@@ -158,7 +164,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
 /* faq */
 details.q{border-bottom:1px solid var(--line);padding:22px 0}
 details.q:first-of-type{border-top:1px solid var(--line)}
-details.q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-family:var(--disp);font-weight:300;font-size:1.3rem;transition:color .25s}
+details.q summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;max-width:900px;font-family:var(--disp);font-weight:300;font-size:1.3rem;transition:color .25s}
 details.q summary::-webkit-details-marker{display:none}
 details.q summary:hover{color:var(--gold-dp)}
 details.q summary::after{content:"+";font-family:var(--mono);font-size:.85rem;color:var(--gold)}
@@ -166,7 +172,7 @@ details.q[open] summary::after{content:"–"}
 details.q p{margin-top:12px;color:var(--mid);font-size:15px;max-width:62ch;animation:fd .45s ease}
 @keyframes fd{from{opacity:0;transform:translateY(-4px)}}
 
-/* dark CTA — where the logo lives */
+/* dark CTA, where the logo lives */
 .cta{background:var(--ink);color:var(--bg);padding:clamp(72px,12vw,120px) 24px;text-align:center;position:relative;overflow:hidden}
 .cta .ghost-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,120%);opacity:.06;pointer-events:none}
 .cta .inner{position:relative;max-width:640px;margin:0 auto}
@@ -185,17 +191,19 @@ details.q p{margin-top:12px;color:var(--mid);font-size:15px;max-width:62ch;anima
 }
 
 footer{background:var(--ink);color:rgba(250,248,243,.5);padding:0 24px 44px}
-.f{max-width:940px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(250,248,243,.10);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px}
+.f{max-width:1180px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(250,248,243,.10);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px}
 footer a:hover{color:var(--gold)}
 
 .rv{opacity:0;transform:translateY(18px);filter:blur(4px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}
 .rv.in{opacity:1;transform:none;filter:none}
 header .rv{transition-delay:var(--d,0s)}
 
-/* ── mobile ── */
+/* mobile */
 @media(max-width:600px){
   body{font-size:16px}
   .wrap{padding:0 20px}
+  .nav-in{padding:16px 20px}
+  .f{padding-left:0;padding-right:0}
   header{padding:130px 0 72px}
   h1{font-size:clamp(2rem,9vw,2.8rem);max-width:none}
   .sub{margin-top:20px}
@@ -255,19 +263,21 @@ header .rv{transition-delay:var(--d,0s)}
 </nav>
 
 <header>
-  <div class="wrap">
+  <div class="wrap hero">
+   <div>
     <div class="tag rv" style="--d:.05s"><span class="pulse"></span> One operator · 3 founding spots · next build Monday</div>
     <h1 class="rv" style="--d:.14s">The lead you missed at <span class="t" id="clock">9:41pm</span> already booked with <em>someone else.</em></h1>
-    <p class="sub rv" style="--d:.24s">I build the AI that picks up instead. It replies on WhatsApp, qualifies the job, and drops the call straight on your calendar — in under 90 seconds, at 3am, on a Sunday.</p>
+    <p class="sub rv" style="--d:.24s">I build the AI that picks up instead. It replies on WhatsApp, works out what they need, and puts the call on your calendar. Under 90 seconds. At 3am. On a Sunday.</p>
     <div class="acts rv" style="--d:.32s">
       <a class="btn" href="#leak"><span>See what it's costing you</span></a>
       <a class="btn ghost" href="/book.html"><span>Book a 15-min call</span></a>
     </div>
+   </div>
 
     <div class="log rv" style="--d:.42s" id="log">
       <div class="log-h"><span>Live log · lead #0428</span><span>Human time: 0 min</span></div>
       <div class="lrow"><i>21:41:06</i><b>Missed call</b></div>
-      <div class="lrow"><i>21:41:11</i><b>WhatsApp sent — "still taking jobs tonight?"</b></div>
+      <div class="lrow"><i>21:41:11</i><b>WhatsApp sent: "still taking jobs tonight?"</b></div>
       <div class="lrow"><i>21:42:29</i><b>Reply received</b></div>
       <div class="lrow"><i>21:42:31</i><b>Qualified · urgent · budget confirmed</b></div>
       <div class="lrow"><i>21:42:34</i><b>Booked · you're pinged on Slack</b></div>
@@ -278,8 +288,10 @@ header .rv{transition-delay:var(--d,0s)}
 
 <section id="leak">
   <div class="wrap">
-    <div class="mono rv">The leak</div>
-    <h2 class="rv">You don't have a lead problem. You have a <em>response-time problem.</em></h2>
+    <div class="shead">
+      <div class="mono rv">The leak</div>
+      <h2 class="rv">You don't have a lead problem. You have a <em>response-time problem.</em></h2>
+    </div>
     <div class="calc">
       <div class="rv">
         <div class="field"><label>Calls you miss in a week <b id="v1">12</b></label><input type="range" id="s1" min="2" max="60" value="12"></div>
@@ -300,10 +312,12 @@ header .rv{transition-delay:var(--d,0s)}
 
 <section id="how">
   <div class="wrap">
-    <div class="mono rv">How it works</div>
-    <h2 class="rv">Three days from kickoff to <em>running without you.</em></h2>
+    <div class="shead">
+      <div class="mono rv">How it works</div>
+      <h2 class="rv">Three days from kickoff to <em>running without you.</em></h2>
+    </div>
     <div class="rows">
-      <div class="row rv"><div class="n">01</div><h3>Kickoff</h3><p>One call. I map exactly where the leads leak — missed calls, slow replies, follow-ups nobody sent.</p></div>
+      <div class="row rv"><div class="n">01</div><h3>Kickoff</h3><p>One call. I map exactly where the leads leak. Missed calls, slow replies, follow-ups nobody sent.</p></div>
       <div class="row rv"><div class="n">02</div><h3>Build</h3><p>Wired into your number, inbox and CRM. You watch a working demo inside 24 hours.</p></div>
       <div class="row rv"><div class="n">03</div><h3>It runs</h3><p>Answers everything, forever. I monitor and fix it. You just show up to the booked calls.</p></div>
     </div>
@@ -318,13 +332,15 @@ header .rv{transition-delay:var(--d,0s)}
 
 <section id="proof">
   <div class="wrap">
-    <div class="mono rv">Proof</div>
-    <h2 class="rv">Same phone. Same leads. <em>Thirty days later.</em></h2>
+    <div class="shead">
+      <div class="mono rv">Proof</div>
+      <h2 class="rv">Same phone. Same leads. <em>Thirty days later.</em></h2>
+    </div>
     <div class="nums">
       <div class="num rv"><div class="mono">Before</div><div class="v" data-count="14" data-suffix="hrs">0<u>hrs</u></div><p>Average time to answer an inbound lead. Most had already called the next firm on Google.</p></div>
       <div class="num hi rv"><div class="mono">After</div><div class="v" data-count="90" data-suffix="sec">0<u>sec</u></div><p>Replied, qualified, booked, logged. Nobody picked up a phone.</p></div>
     </div>
-    <blockquote class="quote rv">“We stopped losing jobs overnight — without hiring anyone to answer the phone.”
+    <blockquote class="quote rv">“We stopped losing jobs overnight, and we didn't hire anyone to answer the phone.”
       <cite>AC maintenance firm · Dubai</cite>
     </blockquote>
   </div>
@@ -332,8 +348,10 @@ header .rv{transition-delay:var(--d,0s)}
 
 <section id="pricing">
   <div class="wrap">
-    <div class="mono rv">Pricing</div>
-    <h2 class="rv">One plan. <em>Cancel whenever.</em></h2>
+    <div class="shead">
+      <div class="mono rv">Pricing</div>
+      <h2 class="rv">One plan. <em>Cancel whenever.</em></h2>
+    </div>
     <div class="plan rv">
       <div>
         <h3>Founding plan</h3>
@@ -362,10 +380,12 @@ header .rv{transition-delay:var(--d,0s)}
 
 <section id="faq">
   <div class="wrap">
-    <div class="mono rv">FAQ</div>
-    <h2 class="rv" style="margin-bottom:46px">The questions <em>everyone asks.</em></h2>
+    <div class="shead" style="margin-bottom:46px">
+      <div class="mono rv">FAQ</div>
+      <h2 class="rv">The questions <em>everyone asks.</em></h2>
+    </div>
     <div class="rv">
-      <details class="q" open><summary>Will it sound like a robot?</summary><p>It sounds like your business at its most awake. You approve the tone, the questions and the fallbacks before it goes live — and anything it can't handle escalates to you instead of getting fumbled.</p></details>
+      <details class="q" open><summary>Will it sound like a robot?</summary><p>It sounds like your business on its best day. You approve the tone, the questions and the fallbacks before it goes live. Anything it can't handle gets escalated to you instead of fumbled.</p></details>
       <details class="q"><summary>Do I need technical skills?</summary><p>None. It's built, tested and handed over. You get booked calls and CRM rows. That's the whole job.</p></details>
       <details class="q"><summary>Who actually builds it?</summary><p>Me. No juniors, no outsourcing, no account manager standing between you and the person writing the workflow.</p></details>
       <details class="q"><summary>What if it breaks?</summary><p>The monthly covers monitoring and fixes. Alerts fire before you notice. Fixes take hours, not days.</p></details>
