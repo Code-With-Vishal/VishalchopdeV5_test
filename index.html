@@ -35,19 +35,11 @@ h1,h2,h3,.disp{font-family:var(--disp);font-weight:300;letter-spacing:-.015em;li
 em{font-style:italic;color:var(--gold-dp)}
 
 /* ── logo ── */
-.mark{display:block}
-.mark .plate{fill:var(--ink)}
-.mark .v1,.mark .v2,.mark .c{fill:var(--gold)}
-.mark .v2{opacity:.55}
-.mark .v1,.mark .v2,.mark .c{opacity:0;transform-origin:center;animation:markIn .8s cubic-bezier(.2,.8,.2,1) forwards}
-.mark .v1{animation-delay:.15s}
-.mark .v2{animation-delay:.3s}
-.mark .c{animation-delay:.45s}
-@keyframes markIn{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
-.mark .v2{animation-name:markIn2}
-@keyframes markIn2{from{opacity:0;transform:translateY(3px)}to{opacity:.55;transform:none}}
+.mark{display:block;opacity:0;animation:markIn .9s cubic-bezier(.2,.8,.2,1) .2s forwards}
+@keyframes markIn{from{opacity:0;transform:translateY(4px) scale(.94)}to{opacity:1;transform:none}}
 .lockup{display:flex;align-items:center;gap:11px}
-.lockup .nm{font-family:var(--disp);font-weight:500;font-size:19px;letter-spacing:-.01em}
+.lockup .nm{font-family:var(--disp);font-weight:500;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
+@media(max-width:420px){.lockup .nm{font-size:17px}}
 
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:60;transition:.45s;border-bottom:1px solid transparent}
@@ -171,17 +163,22 @@ details.q p{margin-top:12px;color:var(--mid);font-size:15px;max-width:62ch;anima
 @keyframes fd{from{opacity:0;transform:translateY(-4px)}}
 
 /* dark CTA — where the logo lives */
-.cta{background:var(--ink);color:var(--bg);padding:120px 24px;text-align:center;position:relative;overflow:hidden}
-.cta .ghost-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,90vw);opacity:.05}
-.cta .inner{position:relative}
-.cta h2{margin:24px auto 0;max-width:16ch;color:var(--bg)}
+.cta{background:var(--ink);color:var(--bg);padding:clamp(72px,12vw,120px) 24px;text-align:center;position:relative;overflow:hidden}
+.cta .ghost-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(560px,120%);opacity:.06;pointer-events:none}
+.cta .inner{position:relative;max-width:640px;margin:0 auto}
+.cta h2{margin:22px auto 0;max-width:16ch;color:var(--bg);font-size:clamp(1.9rem,7vw,3.2rem)}
 .cta h2 em{color:var(--gold)}
-.cta p{color:rgba(250,248,243,.55);margin:20px auto 32px;max-width:40ch}
+.cta p{color:rgba(250,248,243,.55);margin:18px auto 30px;max-width:40ch;font-size:clamp(.95rem,3.6vw,1.05rem)}
 .cta .acts{justify-content:center}
 .cta .btn.ghost{color:var(--bg);border-color:rgba(250,248,243,.22)}
 .cta .btn.ghost:hover{border-color:var(--gold)}
 .cta .btn.ghost:hover span{color:var(--ink)}
 .cta .btn.ghost::after{background:var(--gold)}
+@media(max-width:520px){
+  .cta .acts{flex-direction:column;align-items:stretch;gap:10px}
+  .cta .btn{width:100%;justify-content:center}
+  .cta .ghost-mark{opacity:.045}
+}
 
 footer{background:var(--ink);color:rgba(250,248,243,.5);padding:0 24px 44px}
 .f{max-width:940px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(250,248,243,.10);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px}
@@ -190,20 +187,50 @@ footer a:hover{color:var(--gold)}
 .rv{opacity:0;transform:translateY(18px);filter:blur(4px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s}
 .rv.in{opacity:1;transform:none;filter:none}
 header .rv{transition-delay:var(--d,0s)}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+
+/* ── mobile ── */
+@media(max-width:600px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  header{padding:130px 0 72px}
+  h1{font-size:clamp(2rem,9vw,2.8rem);max-width:none}
+  .sub{margin-top:20px}
+  section{padding:80px 0}
+  .acts{flex-direction:column;align-items:stretch;gap:10px}
+  .btn{width:100%;justify-content:center;padding:15px 22px}
+  .log{margin-top:48px;padding:20px 18px;font-size:11px}
+  .lrow{flex-direction:column;gap:2px;align-items:flex-start;padding:8px 0}
+  .lrow b{line-height:1.35}
+  .log-h{flex-direction:column;gap:4px}
+  .plan{padding:26px}
+  .quote{padding-left:16px}
+  .f{flex-direction:column;gap:8px;text-align:left}
+}
+@media(hover:none){
+  .btn{transform:none!important}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}.mark{opacity:1}}
 </style>
 </head>
 <body>
 
-<!-- reusable logo -->
-<svg style="display:none">
+<!-- reusable logo: fills are presentation attributes, NOT css classes (css can't cross <use> shadow boundary) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="vc" viewBox="0 0 680 680">
-    <rect class="plate" x="90" y="90" width="500" height="500" rx="90"/>
-    <rect x="90" y="90" width="500" height="500" rx="90" fill="none" stroke="#A07C22" stroke-width="6"/>
+    <rect x="90" y="90" width="500" height="500" rx="90" fill="#0C0C0C"/>
+    <rect x="90" y="90" width="500" height="500" rx="90" fill="none" stroke="#A07C22" stroke-width="8"/>
     <g transform="translate(130,130) scale(13.125)">
-      <path class="v1" d="M3 5 L9 5 L14 22 L11 22 Z"/>
-      <path class="v2" d="M14 22 L11 22 L18 5 L21 5 Z"/>
-      <path class="c" d="M29 9.5 A9 9 0 1 0 29 22.5 L26.2 19.8 A5.4 5.4 0 1 1 26.2 12.2 Z"/>
+      <path d="M3 5 L9 5 L14 22 L11 22 Z" fill="#B8902E"/>
+      <path d="M14 22 L11 22 L18 5 L21 5 Z" fill="#B8902E" opacity=".55"/>
+      <path d="M29 9.5 A9 9 0 1 0 29 22.5 L26.2 19.8 A5.4 5.4 0 1 1 26.2 12.2 Z" fill="#B8902E"/>
+    </g>
+  </symbol>
+  <!-- plate-less version, for dark sections where a black plate would vanish -->
+  <symbol id="vc-glyph" viewBox="0 0 680 680">
+    <g transform="translate(130,130) scale(13.125)">
+      <path d="M3 5 L9 5 L14 22 L11 22 Z" fill="#B8902E"/>
+      <path d="M14 22 L11 22 L18 5 L21 5 Z" fill="#B8902E" opacity=".55"/>
+      <path d="M29 9.5 A9 9 0 1 0 29 22.5 L26.2 19.8 A5.4 5.4 0 1 1 26.2 12.2 Z" fill="#B8902E"/>
     </g>
   </symbol>
 </svg>
@@ -211,7 +238,7 @@ header .rv{transition-delay:var(--d,0s)}
 <nav id="nav">
   <div class="nav-in">
     <a class="lockup" href="#">
-      <svg class="mark" width="38" height="38"><use href="#vc"/></svg>
+      <svg class="mark" width="38" height="38" viewBox="0 0 680 680"><use href="#vc"/></svg>
       <span class="nm">Vishal Chopde</span>
     </a>
     <div class="nav-r">
@@ -344,9 +371,9 @@ header .rv{transition-delay:var(--d,0s)}
 </section>
 
 <div class="cta">
-  <svg class="ghost-mark" viewBox="0 0 680 680"><use href="#vc"/></svg>
+  <svg class="ghost-mark" viewBox="0 0 680 680"><use href="#vc-glyph"/></svg>
   <div class="inner">
-    <svg class="mark rv" width="58" height="58" style="margin:0 auto"><use href="#vc"/></svg>
+    <svg class="mark rv" width="54" height="54" viewBox="0 0 680 680" style="margin:0 auto"><use href="#vc-glyph"/></svg>
     <h2 class="rv">Fifteen minutes. <em>A live system, not a deck.</em></h2>
     <p class="rv">Call my number, hang up, and watch the WhatsApp land before you put the phone down.</p>
     <div class="acts rv">
