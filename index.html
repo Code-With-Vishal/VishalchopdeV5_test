@@ -9,10 +9,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Martian+Mono:wght@400&display=swap" rel="stylesheet">
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 <style>
 :root{
   --bg:#FAF8F3;            /* warm bone, sits under gold */
@@ -39,7 +35,7 @@ a{color:inherit;text-decoration:none}
 h1,h2,h3,.disp{font-family:var(--disp);font-weight:300;letter-spacing:-.015em;line-height:1.05}
 em{font-style:italic;color:var(--gold-dp)}
 
-/* logo */
+/* ── logo ── */
 .mark{display:block;opacity:0;animation:markIn .9s cubic-bezier(.2,.8,.2,1) .2s forwards}
 @keyframes markIn{from{opacity:0;transform:translateY(4px) scale(.94)}to{opacity:1;transform:none}}
 .lockup{display:flex;align-items:center;gap:11px}
@@ -112,6 +108,17 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border:0;border-radiu
 .out hr{border:0;border-top:1px solid var(--line);margin:22px 0}
 .out .rec{font-size:14px;color:var(--mid)}
 .out .rec b{color:var(--gold-dp);font-weight:600}
+
+/* control layer */
+.ctrl{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.ctrl-c{border:1px solid var(--line);border-radius:14px;padding:28px;background:rgba(255,255,255,.5);transition:.4s}
+.ctrl-c:hover{border-color:rgba(184,144,46,.4);transform:translateY(-3px)}
+.ctrl-c.hi{background:var(--gold-sf);border-color:rgba(184,144,46,.35)}
+.ctrl-c ul{list-style:none;margin-top:18px}
+.ctrl-c li{font-size:14.5px;color:var(--mid);padding:9px 0;border-bottom:1px solid var(--line);line-height:1.45}
+.ctrl-c li:last-child{border-bottom:0}
+.ctrl-note{margin-top:14px;font-size:13px;color:var(--gold-dp);line-height:1.45}
+@media(max-width:900px){.ctrl{grid-template-columns:1fr}}
 
 /* rows */
 .rows{margin-top:52px}
@@ -198,7 +205,7 @@ footer a:hover{color:var(--gold)}
 .rv.in{opacity:1;transform:none;filter:none}
 header .rv{transition-delay:var(--d,0s)}
 
-/* mobile */
+/* ── mobile ── */
 @media(max-width:600px){
   body{font-size:16px}
   .wrap{padding:0 20px}
@@ -255,9 +262,10 @@ header .rv{transition-delay:var(--d,0s)}
     </a>
     <div class="nav-r">
       <a class="lnk" href="#leak">The leak</a>
+      <a class="lnk" href="#control">Control</a>
       <a class="lnk" href="#how">How it works</a>
       <a class="lnk" href="#pricing">Pricing</a>
-      <a class="btn" href="/book.html"><span>Book a call</span></a>
+      <a class="btn" href="https://wa.me/917058856504?text=Saw%20your%20site%20-%20want%20to%20see%20the%2090-second%20system"><span>Book a call</span></a>
     </div>
   </div>
 </nav>
@@ -265,12 +273,12 @@ header .rv{transition-delay:var(--d,0s)}
 <header>
   <div class="wrap hero">
    <div>
-    <div class="tag rv" style="--d:.05s"><span class="pulse"></span> One operator · 3 founding spots · next build Monday</div>
+    <div class="tag rv" style="--d:.05s"><span class="pulse"></span> One operator · I take two builds at a time</div>
     <h1 class="rv" style="--d:.14s">The lead you missed at <span class="t" id="clock">9:41pm</span> already booked with <em>someone else.</em></h1>
     <p class="sub rv" style="--d:.24s">I build the AI that picks up instead. It replies on WhatsApp, works out what they need, and puts the call on your calendar. Under 90 seconds. At 3am. On a Sunday.</p>
     <div class="acts rv" style="--d:.32s">
       <a class="btn" href="#leak"><span>See what it's costing you</span></a>
-      <a class="btn ghost" href="/book.html"><span>Book a 15-min call</span></a>
+      <a class="btn ghost" href="https://wa.me/917058856504?text=Saw%20your%20site%20-%20want%20to%20see%20the%2090-second%20system"><span>Book a 15-min call</span></a>
     </div>
    </div>
 
@@ -294,17 +302,57 @@ header .rv{transition-delay:var(--d,0s)}
     </div>
     <div class="calc">
       <div class="rv">
-        <div class="field"><label>Calls you miss in a week <b id="v1">12</b></label><input type="range" id="s1" min="2" max="60" value="12"></div>
+        <div class="field"><label>Calls you miss in a week <b id="v1">5</b></label><input type="range" id="s1" min="1" max="25" value="5"></div>
         <div class="field"><label>Average job or deal value <b id="v2">$1,200</b></label><input type="range" id="s2" min="200" max="20000" step="100" value="1200"></div>
-        <div class="field"><label>Of those, how many would've closed <b id="v3">25%</b></label><input type="range" id="s3" min="5" max="60" value="25"></div>
+        <div class="field"><label>Of those, how many would've closed <b id="v3">20%</b></label><input type="range" id="s3" min="5" max="50" value="20"></div>
         <p style="font-size:13.5px;color:var(--faint)">Drag them. Be honest.</p>
       </div>
       <div class="out rv">
         <div class="mono">Walking out the door</div>
-        <div class="v" id="loss">$187,200</div>
-        <p>per year, to whoever answered first</p>
+        <div class="v" id="loss">$62,400</div>
+        <p>a year. <span id="lossm">$5,200</span> a month, to whoever answered first.</p>
         <hr>
-        <div class="rec">Recovering <b>one job a month</b> pays for the system nine times over.</div>
+        <div class="rec">No system recovers all of it. Catch <b>half</b> and it still pays for itself <b id="mult">8x</b> over.</div>
+        <p style="font-size:11.5px;color:var(--faint);margin-top:14px">Your numbers, your assumptions. I'm not going to pretend I know your close rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="control">
+  <div class="wrap">
+    <div class="shead">
+      <div class="mono rv">Where you stay in control</div>
+      <h2 class="rv">Automated, <em>not unsupervised.</em></h2>
+    </div>
+    <div class="ctrl">
+      <div class="ctrl-c rv">
+        <div class="mono">It handles</div>
+        <ul>
+          <li>Instant reply to every missed call and form</li>
+          <li>The four questions you'd ask anyway: what, where, when, budget</li>
+          <li>Booking into your calendar, with reminders</li>
+          <li>Chasing the ones who go quiet</li>
+        </ul>
+      </div>
+      <div class="ctrl-c hi rv">
+        <div class="mono">It hands to you</div>
+        <ul>
+          <li>Anything it isn't confident about, flagged, not guessed</li>
+          <li>Pricing beyond the ranges you set</li>
+          <li>Complaints, disputes, anything emotional</li>
+          <li>Any lead that asks for a human</li>
+        </ul>
+        <p class="ctrl-note">When it's unsure, it says so and pings you. It doesn't invent an answer.</p>
+      </div>
+      <div class="ctrl-c rv">
+        <div class="mono">You approve, up front</div>
+        <ul>
+          <li>Every message template before it goes live</li>
+          <li>The qualifying questions and the order</li>
+          <li>What counts as hot, warm, or ignore</li>
+          <li>Kill switch. One toggle, it stops.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -364,7 +412,7 @@ header .rv{transition-delay:var(--d,0s)}
       <div class="pr">
         <div class="v">$300<small>/mo</small></div>
         <s>+ $500 setup · normally $2,000</s>
-        <a class="btn gold" href="/book.html"><span>Take a founding spot</span></a>
+        <a class="btn gold" href="https://wa.me/917058856504?text=Saw%20your%20site%20-%20want%20to%20see%20the%2090-second%20system"><span>Take a founding spot</span></a>
       </div>
     </div>
     <details class="alt rv">
@@ -401,15 +449,15 @@ header .rv{transition-delay:var(--d,0s)}
     <h2 class="rv">Fifteen minutes. <em>A live system, not a deck.</em></h2>
     <p class="rv">Call my number, hang up, and watch the WhatsApp land before you put the phone down.</p>
     <div class="acts rv">
-      <a class="btn gold" href="/book.html"><span>Book a 15-min call</span></a>
-      <a class="btn ghost" href="https://wa.me/91000"><span>WhatsApp me instead</span></a>
+      <a class="btn gold" href="https://wa.me/917058856504?text=Saw%20your%20site%20-%20want%20to%20see%20the%2090-second%20system"><span>Book a 15-min call</span></a>
+      <a class="btn ghost" href="https://wa.me/00000"><span>WhatsApp me instead</span></a>
     </div>
   </div>
 </div>
 
 <footer>
   <div class="f">
-    <span>© 2026 Samarth AI Studio · UDYAM-MH-04-0221175</span>
+    <span>© 2026 Vishal Chopde</span>
     <span>UAE · UK · US · AU</span>
     <span><a href="https://www.linkedin.com/in/vishal-chopde-patil/">LinkedIn</a> · <a href="https://x.com/_VishalChopde_">X</a> · <a href="mailto:vishalchopde.ai@gmail.com">Email</a></span>
   </div>
@@ -435,9 +483,14 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)retur
 document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 
 const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');let cur=0;
-function calc(){v1.textContent=s1.value;v2.textContent=fmt(s2.value);v3.textContent=s3.value+'%';
-  const target=s1.value*52*s2.value*(s3.value/100),from=cur,t0=performance.now();
-  const tick=t=>{const p=Math.min((t-t0)/450,1);cur=from+(target-from)*(1-Math.pow(1-p,3));loss.textContent=fmt(cur);if(p<1)requestAnimationFrame(tick)};
+function calc(){
+  v1.textContent=s1.value; v2.textContent=fmt(s2.value); v3.textContent=s3.value+'%';
+  const target=s1.value*52*s2.value*(s3.value/100), from=cur, t0=performance.now();
+  const tick=t=>{const p=Math.min((t-t0)/450,1);cur=from+(target-from)*(1-Math.pow(1-p,3));
+    loss.textContent=fmt(cur); lossm.textContent=fmt(cur/12);
+    // honest: assume the system recovers HALF, then compare to the $300/mo plan
+    mult.textContent=Math.max(1,Math.round((cur/2/12)/300))+'x';
+    if(p<1)requestAnimationFrame(tick)};
   requestAnimationFrame(tick)}
 [s1,s2,s3].forEach(s=>s.addEventListener('input',calc));calc();
 
